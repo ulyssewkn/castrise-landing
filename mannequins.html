@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CastRise · Tes castings et les agences à qui écrire, dans une seule app</title>
+<meta name="description" content="Défilés, shootings, campagnes : les castings de plus de 30 sites réunis dans une app iPhone. Dans CastRise, les voir et y postuler est gratuit, sans limite. Polas, book, licences d’agences, événements à Paris.">
+<meta property="og:title" content="Tes castings et les agences à qui écrire, dans une seule app">
+<meta property="og:description" content="Les castings de plus de 30 sites, et de quoi démarcher les agences même si tu débutes. Dans CastRise, voir les castings et y postuler est gratuit.">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="png/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="png/icone-180.png">
+<style>
+:root {
+  --fond:#f6f8fc; --carte:#ffffff; --texte:#14161b; --t2:#5d6470; --bord:rgba(20,30,60,.08);
+  --bleu:#1f6fc5; --bleu-haut:#2373c8; --lien:#1a62b0; --sur-bouton:#ffffff;
+  --halo-a:#dcecfb; --halo-b:#ece4fb;
+  --verre:rgba(255,255,255,.62); --verre-bord:rgba(255,255,255,.9);
+  --titre-degrade:linear-gradient(120deg, #1e293b 0%, #1f6fc5 100%);
+  --ombre:0 2px 12px rgba(30,50,90,.08);
+  --chassis:#16181d;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --fond:#0f1319; --carte:#171c24; --texte:#eef1f6; --t2:#9aa3b2; --bord:rgba(255,255,255,.08);
+  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#2a2340;
+  --verre:rgba(255,255,255,.07); --verre-bord:rgba(255,255,255,.14);
+  --titre-degrade:linear-gradient(120deg, #e2e8f0 0%, #6fb3ea 100%);
+  --ombre:0 2px 14px rgba(0,0,0,.35); --chassis:#2a2e36;
+} }
+:root[data-theme="dark"] {
+  --fond:#0f1319; --carte:#171c24; --texte:#eef1f6; --t2:#9aa3b2; --bord:rgba(255,255,255,.08);
+  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#2a2340;
+  --verre:rgba(255,255,255,.07); --verre-bord:rgba(255,255,255,.14);
+  --titre-degrade:linear-gradient(120deg, #e2e8f0 0%, #6fb3ea 100%);
+  --ombre:0 2px 14px rgba(0,0,0,.35); --chassis:#2a2e36;
+}
+
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body { margin:0; background:var(--fond); color:var(--texte); font:17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+a { color:inherit; }
+.page { max-width:1080px; margin:0 auto; padding:0 16px; }
+main.page { overflow-x:clip; }
+.verre { background:var(--verre); border:1px solid var(--verre-bord); box-shadow:var(--ombre); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+
+.bouton { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 26px; border-radius:999px; border:0; text-decoration:none;
+  font-weight:600; font-size:17px; color:var(--sur-bouton); background:linear-gradient(180deg, var(--bleu-haut), var(--bleu));
+  box-shadow:0 4px 14px rgba(31,111,197,.28), inset 0 1px 0 rgba(255,255,255,.25); }
+.bouton:focus-visible, summary:focus-visible, .lien-nav:focus-visible { outline:3px solid var(--bleu); outline-offset:3px; }
+@media (prefers-reduced-motion: no-preference) { .bouton { transition:transform .15s ease; } .bouton:hover { transform:translateY(-1px); } }
+
+.surtitre { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--lien); margin:0 0 10px; }
+h2 { font-size:clamp(26px, 4.6vw, 38px); letter-spacing:-.02em; line-height:1.12; margin:0 0 14px; text-wrap:balance; }
+.centre { text-align:center; }
+.intro { font-size:18px; color:var(--t2); max-width:34em; margin:0 auto; text-wrap:pretty; }
+
+/* Haut de page */
+.heros { background:radial-gradient(120% 70% at 15% 0%, var(--halo-a) 0%, transparent 60%), radial-gradient(90% 60% at 100% 10%, var(--halo-b) 0%, transparent 60%), var(--fond); }
+nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.marque { font-weight:700; font-size:18px; letter-spacing:-.01em; display:inline-flex; align-items:center; gap:10px; }
+.marque img { display:block; height:28px; width:auto; }
+.lien-nav { font-size:15px; font-weight:600; padding:10px 18px; border-radius:999px; text-decoration:none; }
+.heros-grille { display:grid; gap:36px; padding:28px 0 56px; align-items:center; }
+h1 { font-size:clamp(36px, 7.4vw, 62px); line-height:1.04; letter-spacing:-.028em; margin:0 0 18px; text-wrap:balance; font-weight:800;
+  background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.chapeau { font-size:clamp(18px, 2.4vw, 21px); color:var(--t2); margin:0 0 26px; max-width:32em; text-wrap:pretty; }
+.sous-bouton { font-size:14.5px; color:var(--t2); margin:14px 0 0; text-wrap:balance; }
+
+/* Téléphone */
+.tel { width:min(300px, 78vw); margin:0 auto; border-radius:46px; padding:10px; background:var(--chassis);
+  box-shadow:0 30px 60px rgba(20,40,80,.22), 0 0 0 1px rgba(255,255,255,.06) inset; }
+.tel img { display:block; width:100%; height:auto; min-height:200px; border-radius:37px; padding-bottom:18px; background:#ffffff; }
+.tel.fondu { -webkit-mask-image:linear-gradient(#000 62%, transparent 96%); mask-image:linear-gradient(#000 62%, transparent 96%); }
+
+/* Constat */
+.constat { padding:64px 0 56px; }
+.trio { display:grid; gap:14px; margin-top:30px; }
+.douleur { border-radius:24px; padding:22px 20px; }
+.douleur strong { display:block; font-size:18px; line-height:1.3; margin-bottom:6px; }
+.douleur span { color:var(--t2); font-size:16px; }
+.bascule { font-size:clamp(19px, 2.6vw, 23px); font-weight:600; text-align:center; margin:34px auto 0; max-width:28em; text-wrap:balance; }
+
+/* Blocs fonctions */
+.bloc { position:relative; isolation:isolate; display:grid; gap:28px; align-items:center; padding:56px 0; border-top:1px solid var(--bord); }
+.bloc::before { content:""; position:absolute; z-index:-1; inset:auto -6% 0; height:65%;
+  background:radial-gradient(32% 42% at 74% 52%, var(--halo-a) 0%, transparent 70%), radial-gradient(24% 32% at 86% 30%, var(--halo-b) 0%, transparent 70%);
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.titre-bloc { font-size:clamp(26px, 3.8vw, 34px); line-height:1.12; letter-spacing:-.02em; margin:0 0 14px; text-wrap:balance; }
+.texte p { font-size:clamp(17px, 2.2vw, 19px); line-height:1.6; margin:0 0 12px; max-width:32em; text-wrap:pretty; }
+.texte .gratuit { font-size:15px; color:var(--t2); margin:6px 0 0; }
+.texte .gratuit b { color:var(--lien); }
+
+/* Pro */
+.pro-zone { border-radius:40px; padding:40px 16px 28px; margin:32px 0; border:1px solid var(--bord);
+  background:radial-gradient(70% 90% at 0 0, var(--halo-a), transparent 70%), radial-gradient(70% 90% at 100% 100%, var(--halo-b), transparent 70%), var(--fond); }
+.paire { display:grid; gap:24px; margin-top:28px; }
+.carte-texte { position:relative; border-radius:26px; padding:30px 22px 24px; }
+.carte-texte p { font-size:17px; line-height:1.6; margin:0; text-wrap:pretty; }
+.pastille { position:absolute; top:-12px; left:22px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--sur-bouton);
+  background:linear-gradient(180deg, var(--bleu-haut), var(--bleu)); padding:4px 10px; border-radius:999px; }
+
+/* Honnêteté + fondateur */
+.carre { padding:56px 0; border-top:1px solid var(--bord); }
+.carre .carte { border-radius:28px; padding:30px 22px; max-width:720px; margin:0 auto; }
+.carre p { font-size:18px; margin:0 0 14px; text-wrap:pretty; }
+.carre p:last-child { margin-bottom:0; }
+.liste-non { list-style:none; padding:0; margin:0 0 18px; display:grid; gap:8px; }
+.liste-non li { padding-left:28px; position:relative; font-size:17px; }
+.liste-non li::before { content:"✕"; position:absolute; left:0; color:var(--t2); font-weight:700; }
+.signature { color:var(--t2); font-size:16px; }
+
+/* Prix */
+.prix { padding:56px 0; border-top:1px solid var(--bord); text-align:center; }
+.tableau-cadre { overflow-x:auto; margin:24px auto 0; max-width:760px; border-radius:22px; }
+table { width:100%; border-collapse:collapse; font-size:15.5px; text-align:left; min-width:460px; }
+th, td { padding:13px 14px; border-bottom:1px solid var(--bord); }
+thead th { font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--t2); }
+thead th:last-child, tbody td:last-child { background:linear-gradient(180deg, rgba(31,111,197,.08), rgba(31,111,197,.04)); }
+td:not(:first-child), th:not(:first-child) { text-align:center; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.oui { color:var(--lien); font-weight:700; }
+.non { color:var(--t2); }
+.offres { display:none; gap:12px; max-width:420px; margin:24px auto 0; text-align:left; }
+.offre { border-radius:22px; padding:20px 18px; }
+.offre h3 { margin:0 0 4px; font-size:20px; }
+.offre .prix-grand { font-size:34px; font-weight:800; letter-spacing:-.02em; margin:0 0 10px; background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.offre .prix-grand small { font-size:18px; font-weight:700; }
+.offre .tout { font-weight:600; margin:0 0 6px; font-size:15.5px; }
+.offre ul { margin:0; padding-left:18px; color:var(--t2); font-size:15.5px; }
+.offre.pro { border:1.5px solid var(--bleu); }
+.tarifs { margin:22px auto 6px; font-size:18px; text-wrap:balance; max-width:36em; }
+.tarifs span { white-space:nowrap; font-weight:600; }
+.fin-cta { text-align:center; margin-top:26px; }
+
+/* FAQ */
+.faq { padding:56px 0 40px; border-top:1px solid var(--bord); }
+details { max-width:760px; margin:10px auto 0; border-radius:18px; padding:2px 18px; }
+summary { cursor:pointer; list-style:none; font-weight:600; padding:16px 0; display:flex; justify-content:space-between; gap:12px; text-wrap:balance; }
+summary::-webkit-details-marker { display:none; }
+summary::after { content:"+"; color:var(--lien); font-weight:700; }
+details[open] summary::after { content:"−"; }
+details p { margin:0 0 16px; color:var(--t2); }
+
+/* Dernier appel */
+.final { margin:40px 0 24px; border-radius:40px; padding:52px 22px; text-align:center;
+  background:radial-gradient(80% 120% at 20% 0%, var(--halo-a), transparent 70%), radial-gradient(80% 120% at 90% 100%, var(--halo-b), transparent 70%), var(--fond); border:1px solid var(--bord); }
+.final h2 { font-size:clamp(28px, 5vw, 44px); background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+footer { padding:28px 0 44px; font-size:14px; color:var(--t2); display:flex; flex-wrap:wrap; justify-content:center; column-gap:16px; }
+footer a { display:inline-block; white-space:nowrap; padding:12px 4px; }
+
+@media (max-width: 760px) { .tableau-cadre { display:none; } .offres { display:grid; } }
+@media (max-width: 640px) { .lien-nav { display:none; } }
+@media (max-width: 480px) { footer { display:grid; grid-template-columns:auto auto; column-gap:24px; } }
+@media (min-width: 860px) {
+  .heros-grille { grid-template-columns:1.15fr .85fr; padding:48px 0 80px; }
+  .trio { grid-template-columns:repeat(3, 1fr); }
+  .bloc { grid-template-columns:1fr 1fr; gap:64px; padding:80px 0; }
+  .bloc::before { inset:0 -6%; height:auto; }
+  .bloc:nth-of-type(even) .texte { order:2; }
+  .bloc:nth-of-type(even)::before { transform:scaleX(-1); }
+  .pro-zone { padding:52px 40px 40px; }
+  .paire { grid-template-columns:1fr 1fr; }
+  .carre .carte { padding:36px 40px; }
+}
+
+/* Mode sombre : le téléphone coupé garde son châssis au lieu du fondu */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tel.fondu { -webkit-mask-image:none; mask-image:none; border-radius:46px 46px 0 0; padding-bottom:0; }
+  :root:not([data-theme="light"]) .tel.fondu img { border-radius:37px 37px 0 0; padding-bottom:0; }
+  :root:not([data-theme="light"]) .bloc:has(.fondu) { padding-bottom:0; } }
+:root[data-theme="dark"] .tel.fondu { -webkit-mask-image:none; mask-image:none; border-radius:46px 46px 0 0; padding-bottom:0; }
+:root[data-theme="dark"] .tel.fondu img { border-radius:37px 37px 0 0; padding-bottom:0; }
+:root[data-theme="dark"] .bloc:has(.fondu) { padding-bottom:0; }
+</style>
+
+<style>
+/* Version fusionnée : étiquettes, liste d'attente, fondateur, aiguillage */
+.etiquette { display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--lien);
+  padding:5px 12px; border-radius:999px; background:rgba(31,111,197,.10); margin:0 0 14px; }
+.texte .bouton { margin-top:16px; min-height:44px; font-size:15.5px; padding:0 20px; }
+.attente { display:flex; flex-wrap:wrap; gap:10px; max-width:460px; }
+.final .attente { margin:0 auto; justify-content:center; }
+.attente input { flex:1 1 220px; min-height:50px; padding:0 20px; border-radius:999px; font:inherit; font-size:16px; color:var(--texte);
+  background:var(--verre); border:1px solid var(--bord); box-shadow:var(--ombre); }
+.attente input:focus-visible { outline:3px solid var(--bleu); outline-offset:2px; }
+.attente .bouton { flex:0 0 auto; }
+.mention { font-size:13px; color:var(--t2); margin:10px 0 0; }
+.fondateur-grille { display:grid; gap:22px; align-items:center; }
+.portrait { width:120px; height:120px; border-radius:50%; object-fit:cover; background:var(--halo-a); border:3px solid var(--verre-bord); box-shadow:var(--ombre); }
+.aiguillage { display:grid; gap:14px; padding:56px 0; border-top:1px solid var(--bord); }
+.porte { display:block; border-radius:26px; padding:26px 22px; text-decoration:none; }
+.porte strong { display:block; font-size:22px; margin-bottom:6px; }
+.porte span { color:var(--t2); }
+.porte em { display:block; font-style:normal; font-weight:600; color:var(--lien); margin-top:12px; }
+h1 sup { font-size:.45em; vertical-align:super; line-height:0; -webkit-text-fill-color:var(--lien); }
+.renvoi { font-size:13px; color:var(--t2); margin:12px 0 0; max-width:34em; }
+/* Pile de notifications (illustration du bloc Alertes) */
+.notifs { width:min(340px, 88vw); margin:0 auto; display:grid; gap:10px; }
+.notif { display:grid; grid-template-columns:38px 1fr; gap:10px; align-items:start; padding:12px 14px; border-radius:20px; text-align:left; }
+.notif:nth-child(2) { transform:scale(.97); opacity:.92; } .notif:nth-child(3) { transform:scale(.94); opacity:.8; }
+.notif .ico { width:38px; height:38px; border-radius:10px; overflow:hidden; flex:none; }
+.notif .ico img { display:block; width:38px; height:38px; }
+.notif .ligne1 { display:flex; justify-content:space-between; font-size:12.5px; color:var(--t2); }
+.notif .ligne1 b { color:var(--texte); font-weight:600; }
+.notif .corps { font-size:14.5px; line-height:1.35; margin-top:2px; }
+.notif .corps b { display:block; }
+.puces { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:0; list-style:none; }
+.puces li { font-size:14px; font-weight:600; padding:7px 13px; border-radius:999px; }
+.chiffres { display:grid; gap:14px; padding:56px 0; border-top:1px solid var(--bord); }
+.chiffre { border-radius:26px; padding:26px 22px; text-align:center; }
+.chiffre strong { display:block; font-size:clamp(38px, 6vw, 52px); font-weight:800; letter-spacing:-.03em; line-height:1; margin-bottom:8px;
+  background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.chiffre span { color:var(--t2); font-size:16px; }
+@media (min-width: 860px) { .chiffres { grid-template-columns:repeat(3, 1fr); } }
+@media (min-width: 700px) { .fondateur-grille { grid-template-columns:auto 1fr; } .fondateur-grille.sans-portrait { grid-template-columns:1fr; } .aiguillage { grid-template-columns:1fr 1fr; } }
+
+/* Bouton de téléchargement App Store */
+.store { display:inline-flex; align-items:center; gap:10px; min-height:56px; padding:0 22px 0 18px; border-radius:14px; background:#000; color:#fff;
+  text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,.22); border:1px solid rgba(255,255,255,.18); }
+.store svg { width:24px; height:28px; }
+.store span { display:flex; flex-direction:column; font-size:21px; font-weight:600; line-height:1.05; letter-spacing:-.01em; }
+.store small { font-size:12px; font-weight:500; letter-spacing:.01em; }
+.store:focus-visible { outline:3px solid var(--bleu); outline-offset:3px; }
+
+/* Chiffres mesurés (3 nov. 2026) : quatre cases, un préfixe « plus de », une ligne de source datée */
+.chiffres.quatre { padding:8px 0 48px; border-top:0; }
+.chiffre strong small { display:block; font-size:15px; font-weight:700; letter-spacing:.02em; margin-bottom:6px; -webkit-text-fill-color:var(--lien); }
+.source-chiffres { grid-column:1 / -1; font-size:13px; color:var(--t2); text-align:center; margin:4px auto 0; max-width:46em; text-wrap:balance; }
+.texte .chiffre-ligne { font-size:15px; color:var(--t2); margin:4px 0 0; }
+.texte .chiffre-ligne b { color:var(--lien); }
+.chiffres.quatre { grid-template-columns:repeat(2, 1fr); gap:10px; }
+@media (max-width: 599px) { .chiffres.quatre .chiffre { padding:20px 12px; border-radius:22px; } .chiffres.quatre .chiffre span { font-size:14.5px; display:block; line-height:1.4; } }
+@media (min-width: 960px) { .chiffres.quatre { grid-template-columns:repeat(4, 1fr); } }
+
+/* Bande de trois chiffres (consigne du 3 nov. : au plus trois, lisibles en une seconde) */
+.chiffres.trois { padding:8px 0 48px; border-top:0; gap:10px; }
+.chiffres.trois .chiffre strong small { font-size:14px; }
+@media (max-width: 599px) {
+  .chiffres.trois .chiffre { display:grid; grid-template-columns:96px 1fr; align-items:center; gap:14px; text-align:left; padding:16px 18px; border-radius:22px; }
+  .chiffres.trois .chiffre strong { margin:0; font-size:40px; }
+  .chiffres.trois .chiffre span { font-size:15.5px; line-height:1.4; }
+}
+@media (min-width: 600px) { .chiffres.trois { grid-template-columns:repeat(3, 1fr); } }
+footer.page { padding:28px 16px 44px; }
+/* Capture avec légende (annuaire flouté, 3 nov.) */
+figure.capture { margin:0; }
+.legende { font-size:13px; color:var(--t2); text-align:center; margin:12px 0 0; }
+/* « vingtaine » : un mot à jambage sous la ligne ; avec line-height:1, le dégradé en background-clip:text coupait le bas du « g ». */
+.chiffre strong.mot { font-size:clamp(30px, 4.4vw, 44px); line-height:1.15; background:none; -webkit-text-fill-color:currentColor; color:var(--texte); }
+/* Le dégradé ne s'applique qu'au mot : appliqué au strong entier, il laissait un liseré sombre autour du petit « une ». */
+.chiffre strong.mot b { display:block; font-weight:inherit; padding-bottom:.12em; background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+@media (max-width: 599px) {
+  .chiffres.trois .chiffre strong.mot { font-size:26px; }
+  .chiffres.trois .chiffre:has(.mot) { grid-template-columns:auto 1fr; }
+  /* même hauteur que les cartes à chiffre (petit « plus de » + nombre de 40 px) */
+  .chiffres.trois .chiffre { min-height:94px; }
+}
+
+/* Prix par formule (socle gratuit + abonnement) */
+.gratuit-bande { max-width:760px; margin:24px auto 0; border-radius:22px; padding:20px 22px; text-align:left; }
+.gratuit-bande strong { display:block; font-size:19px; margin-bottom:4px; }
+.gratuit-bande span { color:var(--t2); font-size:16px; }
+.formules { display:grid; gap:12px; max-width:760px; margin:14px auto 0; grid-template-columns:repeat(2, 1fr); }
+.formule { border-radius:22px; padding:18px 16px; text-align:left; }
+.formule h3 { margin:0 0 4px; font-size:17px; }
+.formule .prix-grand { font-size:28px; font-weight:800; letter-spacing:-.02em; margin:0 0 4px; line-height:1.1; background:var(--titre-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.formule p { margin:0; font-size:14.5px; color:var(--t2); }
+.formule.mise { border:1.5px solid var(--bleu); }
+.conditions { max-width:46em; margin:20px auto 0; font-size:14.5px; color:var(--t2); text-wrap:pretty; }
+@media (min-width: 860px) { .formules { grid-template-columns:repeat(4, 1fr); } }
+
+/* Pied de page : liens légaux, contact, mention Apple */
+.marques { flex-basis:100%; text-align:center; font-size:12.5px; margin:10px 0 0; }
+@media (max-width: 480px) { .marques { grid-column:1 / -1; } }
+@media (prefers-reduced-motion: no-preference) { .store { transition:transform .15s ease; } .store:hover { transform:translateY(-1px); } }
+/* Avant la publication de l'app (build.py, LIEN_APP_STORE vide), les boutons de téléchargement sont des span :
+ * même forme, rien à cliquer, pas de mouvement au survol. */
+.bientot { cursor:default; user-select:none; }
+.bouton.bientot:hover, .store.bientot:hover { transform:none; }
+</style>
+</head>
+<body>
+
+<header class="heros">
+  <div class="page">
+    <nav><span class="marque"><picture><source srcset="png/monogramme-blanc.png" media="(prefers-color-scheme: dark)"><img src="png/monogramme-nuit.png" alt="" width="41" height="28"></picture>CastRise</span><span class="lien-nav verre bientot">Bientôt sur l’App Store</span></nav>
+    <div class="heros-grille">
+      <div>
+        
+        <h1>Tes castings et les agences à qui écrire, dans une seule app</h1>
+        <p class="chapeau">Défilés, shootings, campagnes. Cette semaine, plus de 200 annonces de castings sont arrivées au même endroit, tous profils confondus. Et quand tu débutes, l’app te dit quoi préparer avant d’écrire aux agences.</p>
+        
+        <span class="store bientot" id="telecharger"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><small>Bientôt sur</small>l’App Store</span></span>
+        <p class="sous-bouton">Sur iPhone. Dans CastRise, voir les castings et y postuler est gratuit, sans limite.</p>
+      </div>
+      <div class="tel"><img src="png/app-castings-2026-11-03-net.png" alt="L’onglet Castings de l’app, avec les annonces à examiner"></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  
+  <section class="chiffres trois" aria-label="CastRise en chiffres">
+    <div class="chiffre verre"><strong><small>plus de</small>200</strong><span>annonces de castings cette semaine, tous profils</span></div>
+    <div class="chiffre verre"><strong><small>plus de</small>40</strong><span>agences de mannequins à qui envoyer tes polas</span></div>
+    <div class="chiffre verre"><strong><small>plus de</small>25</strong><span>événements du métier à Paris d’octobre à mars</span></div>
+    <p class="source-chiffres">Chiffres du 3 novembre 2026.</p>
+  </section>
+
+  <section class="constat" style="border-top:1px solid var(--bord)">
+    <p class="surtitre centre">Tu débutes&nbsp;?</p>
+    <h2 class="centre">Personne ne t’explique comment on commence.</h2>
+    <div class="trio">
+      <div class="douleur verre"><strong>Les castings sont partout</strong><span>Sites, groupes WhatsApp, bouche‑à‑oreille&nbsp;: tu passes tes soirées à chercher au lieu de postuler.</span></div>
+      <div class="douleur verre"><strong>Tu ne sais pas quoi envoyer</strong><span>Mensurations, polas, book… Chaque agence demande ses pièces, et personne ne te dit par laquelle commencer.</span></div>
+      <div class="douleur verre"><strong>Une «&nbsp;agence&nbsp;» te demande de l’argent</strong><span>Elle te promet un contrat, puis réclame des frais d’inscription. Une agence de mannequins n’a pas le droit de te faire payer, même avec une licence.</span></div>
+    </div>
+    <p class="bascule">CastRise réunit les castings, la marche à suivre pour démarrer et l’annuaire des agences.</p>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Castings</span>
+      <h2 class="titre-bloc">Les castings de ta région, sans fouiller dix sites</h2>
+      <p>Défilés d’école, shootings, pubs, catalogues&nbsp;: CastRise rassemble des annonces publiées sur plus de 30 sites. Avec le filtre «&nbsp;Où&nbsp;», tu gardes celles de ta région, ou d’une autre région si tu te déplaces.</p>
+      <p>Dans CastRise, tu les consultes et tu y postules sans payer, autant que tu veux. Certains sites d’origine ont leur propre abonnement.</p>
+      <p class="gratuit"><b>Gratuit</b>, sans limite.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel"><img src="png/app-castings-liste-2026-11-03.png" alt="La liste des castings à examiner, avec le filtre Partout et trois annonces de sites de castings&nbsp;: Comédien·ne, Mannequin à 300&nbsp;€, Comédiens pour un court métrage à Paris"></div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Alertes</span>
+      <h2 class="titre-bloc">Ton téléphone te prévient</h2>
+      <p>Quand de nouveaux castings arrivent pour toi, tu reçois une notification et tu peux postuler dans la foulée. S’il n’y a rien de neuf, rien ne part.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    
+    <div class="notifs" role="img" aria-label="Exemples de notifications de nouveaux castings">
+      <div class="notif verre"><div class="ico"><picture><source srcset="png/icone-soir-64.png" media="(prefers-color-scheme: dark)"><img src="png/icone-64.png" alt="" width="38" height="38"></picture></div><div><div class="ligne1"><b>2 nouveaux castings pour toi</b><span>maintenant</span></div><div class="corps"><b>Défilé d’une école de mode</b>18-30 ans · Paris<br>+ 1 autre</div></div></div>
+      <div class="notif verre"><div class="ico"><picture><source srcset="png/icone-soir-64.png" media="(prefers-color-scheme: dark)"><img src="png/icone-64.png" alt="" width="38" height="38"></picture></div><div><div class="ligne1"><b>1 nouveau casting pour toi</b><span>hier</span></div><div class="corps"><b>Shooting catalogue</b>20-35 ans · Lille</div></div></div>
+      <div class="notif verre"><div class="ico"><picture><source srcset="png/icone-soir-64.png" media="(prefers-color-scheme: dark)"><img src="png/icone-64.png" alt="" width="38" height="38"></picture></div><div><div class="ligne1"><b>3 nouveaux castings pour toi</b><span>lundi</span></div><div class="corps"><b>Pub pour une marque de sport</b>20-30 ans · Paris<br>+ 2 autres</div></div></div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Pour débuter</span>
+      <h2 class="titre-bloc">Tes mensurations, tes polas, puis les agences</h2>
+      <p>Mon parcours te fait avancer dans l’ordre&nbsp;: ce que tu vises, tes mensurations, tes polas, tes premiers castings, puis tes premières agences. Chaque jour, l’écran Aujourd’hui te propose la prochaine chose à faire, par exemple noter tes mensurations. Le book vient plus tard.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel fondu"><img src="png/aujourdhui-carte-du-jour-3nov.png" alt="L’écran Aujourd’hui du 3 novembre&nbsp;: Profil 4 sur 5, Dossier à faire, Castings 1 sur 3, puis la carte Note tes mensurations"></div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Agences</span>
+      <h2 class="titre-bloc">Plus de 40 agences à qui envoyer tes polas</h2>
+      <p>L’annuaire liste des agences de mannequins en France, avec, pour la plupart, ce qu’elles demandent et leur page de candidature. Plus de 20 ont leur licence retrouvée au Journal officiel.</p>
+      <p>Une agence de mannequins n’a pas le droit de te faire payer, même avec une licence. Avant de répondre à une agence qui t’écrit, tu peux chercher sa licence dans CastRise. Une licence publiée ne dit pas si l’agence travaille bien.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <figure class="capture"><div class="tel"><img src="png/annuaire-agences-floute-3nov-v3.png" alt="L’annuaire des agences filtré sur Paris, avec 36 agences et le badge Agence vérifiée"></div><figcaption class="legende">Noms et logos floutés pour cette page.</figcaption></figure>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Book</span>
+      <h2 class="titre-bloc">Ton book envoyé en un lien, à la sortie du casting</h2>
+      <p>On te demande ton book en partant&nbsp;? Tu envoies un lien depuis ton téléphone. À côté, Mon profil réunit ce que les agences lisent avec tes photos, et s’exporte en fiche PDF.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel"><img src="png/app-book-lien-2026-11-03-net.png" alt="Le bas de l’écran Book, avec Mon book en ligne"></div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Événements</span>
+      <h2 class="titre-bloc">Les salons photo de Paris, assez tôt pour y aller</h2>
+      <p>Dans les salons photo, on croise des photographes. Événements réunit plus de 25 dates du métier à Paris d’octobre à mars, avec le site officiel de chacune. Tu vois tout de suite celles qui sont réservées aux pros ou sur invitation, comme les fashion weeks.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel"><img src="png/app-evenements-2026-11-03-net.png" alt="L’onglet Événements, avec le calendrier des dates à Paris"></div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Réseau</span>
+      <h2 class="titre-bloc">Les rencontres d’un test, retrouvées six mois après</h2>
+      <p>Dans ce métier, le prochain shooting vient souvent d’une personne déjà croisée. Le photographe ou la photographe d’un test, par exemple, ou l’équipe maquillage d’un défilé d’école. Tu notes chaque rencontre dans le carnet, avec un rappel pour reprendre contact.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel"><img src="png/07c-reseau-carnet-contacts-sans-barre-net.png" alt="Le carnet de contacts, avec un rappel pour reprendre contact"></div>
+  </section>
+
+  <section class="bloc">
+    <div class="texte">
+      <span class="etiquette">Jobs</span>
+      <h2 class="titre-bloc">Après vingt candidatures, savoir qui relancer</h2>
+      <p>Au bout d’un moment, difficile de savoir qui a répondu. Jobs garde la liste de tes candidatures et de tes missions, et te montre qui relancer. Dans Mes parutions, tu gardes les liens de ce qui a été publié avec toi.</p>
+      <p class="gratuit">Avec l’abonnement, après 3 jours d’essai.</p>
+      <span class="bouton bientot">Bientôt sur l’App Store</span>
+    </div>
+    <div class="tel"><img src="png/app-candidatures-2026-11-03-net.png" alt="La liste des candidatures envoyées, avec celle à relancer"></div>
+  </section>
+
+  <section class="pro-zone">
+    <p class="surtitre centre">Avec l’abonnement</p>
+    <h2 class="centre">La veille d’un casting, pose tes questions à l’assistant IA</h2>
+    <p class="intro centre">Tu te demandes quoi porter, ou quoi dire en entrant&nbsp;? Pose la question à l’assistant, même tard le soir. Ses réponses tiennent compte de ton profil. Il ne contacte personne en ton nom et ne remplace pas un agent artistique.</p>
+    <div class="fin-cta"><a class="bouton" href="#prix">Voir les prix</a></div>
+  </section>
+
+  <section class="carre">
+    <div class="carte verre">
+      <p class="surtitre">Pour être clair</p>
+      <h2>CastRise n’est pas une agence</h2>
+      <ul class="liste-non">
+        <li>Il ne te sélectionne pas et ne te représente pas.</li>
+        <li>Il ne négocie pas tes cachets et ne prend aucune commission.</li>
+        <li>Il ne te garantit aucun casting. Personne ne le peut.</li>
+      </ul>
+      <p>Tu t’en sers sans agence, ou en plus de la tienne.</p>
+    </div>
+  </section>
+
+
+  
+
+  
+  <section class="prix" id="prix">
+    <p class="surtitre">Prix</p>
+    <h2>Gratuit pour les castings, 3&nbsp;jours d’essai pour le reste</h2>
+    <div class="gratuit-bande verre"><strong>0&nbsp;€, sans limite</strong><span>Voir les castings et y postuler reste gratuit, sans abonnement.</span></div>
+    <p class="intro" style="margin-top:20px">Le reste demande un abonnement&nbsp;: book et profil, Événements, Jobs, carnet, vérification des licences et annuaire, Mon parcours, assistant IA.</p>
+    <div class="formules">
+      <div class="formule verre"><h3>Mensuel</h3><p class="prix-grand">9,99&nbsp;€</p><p>par mois, 3&nbsp;jours d’essai</p></div>
+      <div class="formule verre"><h3>Trimestriel</h3><p class="prix-grand">24,99&nbsp;€</p><p>tous les 3&nbsp;mois, 3&nbsp;jours d’essai</p></div>
+      <div class="formule verre mise"><h3>Annuel</h3><p class="prix-grand">59,99&nbsp;€</p><p>par an, soit moins de 5&nbsp;€ par mois, 3&nbsp;jours d’essai</p></div>
+      <div class="formule verre"><h3>À vie</h3><p class="prix-grand">249,99&nbsp;€</p><p>en un seul paiement, sans essai</p></div>
+    </div>
+    <p class="conditions">Le mensuel, le trimestriel et l’annuel commencent par 3 jours d’essai gratuit, une fois par identifiant Apple. L’achat à vie n’a pas d’essai et ne se renouvelle pas. L’abonnement se renouvelle seul pour la même durée, sauf résiliation au moins 24 heures avant la fin de l’essai ou de la période en cours. Tu le résilies dans les réglages de ton iPhone. Prix pour la France, TTC.</p>
+    <div class="fin-cta prix-cta"><span class="bouton bientot">Bientôt sur l’App Store</span></div>
+  </section>
+
+  <section class="faq">
+    <h2 class="centre">Questions</h2>
+    <details class="verre"><summary>Je n’ai ni photos ni agence. C’est pour moi&nbsp;?</summary><p>Oui. Après ce que tu vises, Mon parcours te fait commencer par tes mensurations et tes polas, des photos faites au téléphone.</p></details>
+    <details class="verre"><summary>C’est vraiment gratuit&nbsp;?</summary><p>Voir les castings et y postuler, oui, sans limite. Le reste de l’app demande un abonnement, avec 3 jours d’essai sur le mensuel, le trimestriel et l’annuel.</p></details>
+    <details class="verre"><summary>C’est une agence&nbsp;?</summary><p>Non. CastRise ne te représente pas et ne touche rien sur tes cachets.</p></details>
+    <details class="verre"><summary>Est-ce que CastRise me trouve du travail&nbsp;?</summary><p>Non, et personne ne peut te garantir un casting. L’app te montre où postuler et t’aide à préparer ta candidature.</p></details>
+    <details class="verre"><summary>J’ai déjà une agence. À quoi ça me sert&nbsp;?</summary><p>À voir les castings qui passent, à garder tes contacts et à préparer tes castings. Si ton contrat est exclusif, parles-en avec elle avant de postuler en direct.</p></details>
+    <details class="verre"><summary>L’assistant IA, c’est un agent artistique&nbsp;?</summary><p>Non. C’est une IA, pas une personne, et elle ne parle à personne en ton nom. Pour un contrat important, demande l’avis d’un professionnel.</p></details>
+    <details class="verre"><summary>Et si j’ai moins de 18 ans&nbsp;?</summary><p>L’app t’est ouverte. Avant 16 ans, poser demande une autorisation administrative, que l’employeur doit obtenir, sauf avec une agence de mannequins agréée pour les enfants. Avant 18 ans, un contrat se signe avec l’accord de tes parents.</p></details>
+    <details class="verre"><summary>Qui voit mon book&nbsp;?</summary><p>Les personnes à qui tu envoies son lien. Il n’apparaît pas sur Google, sauf si tu l’actives.</p></details>
+    <details class="verre"><summary>Et mes données&nbsp;?</summary><p>Tu peux les exporter depuis l’app, avec ou sans abonnement, une fois toutes les 24 heures.</p></details>
+    <details class="verre"><summary>Et si je veux partir&nbsp;?</summary><p>Tu supprimes ton compte depuis l’app. Avec un abonnement, résilie-le aussi dans les réglages de ton iPhone&nbsp;: supprimer l’app ne suffit pas.</p></details>
+    <details class="verre"><summary>D’où viennent les chiffres de cette page&nbsp;?</summary><p>Des données de l’app, comptées le 3 novembre 2026 et arrondies vers le bas. Le nombre d’annonces de la semaine est celui que l’app affiche à son premier écran&nbsp;: les annonces arrivées dans les 7 jours avant le 3 novembre 2026 au soir, depuis des sites français, tous profils confondus. Les agences viennent de l’annuaire de l’app, et les événements de la liste d’Événements. Pour chercher une agence, l’app s’appuie sur plus de 700 avis du Journal officiel parus depuis 1993&nbsp;: licences, renouvellements, retraits et agréments pour les enfants.</p></details>
+    <details class="verre"><summary>Et sur Android&nbsp;?</summary><p>Pour l’instant, CastRise n’existe que sur iPhone.</p></details>
+  </section>
+
+  <section class="final">
+    <h2>Ta carrière n’attend pas qu’une agence te signe.</h2>
+    <p class="intro">Télécharge CastRise, remplis ton profil, et regarde les castings qui arrivent.</p>
+    <div class="fin-cta"><span class="bouton bientot">Bientôt sur l’App Store</span></div>
+    <p class="mention">Sur iPhone. Dans CastRise, voir les castings et y postuler est gratuit, sans limite.</p>
+  </section>
+
+</main>
+<footer class="page"><a href="https://app.castrise.fr/mentions-legales">Mentions légales</a><a href="https://app.castrise.fr/confidentialite">Confidentialité</a><a href="https://app.castrise.fr/conditions">Conditions</a><a href="mailto:contact@castrise.fr">contact@castrise.fr</a><p class="marques">Apple et le logo Apple sont des marques d’Apple Inc., déposées aux États-Unis et dans d’autres pays. App Store est une marque de service d’Apple Inc.</p></footer>
+</body>
+</html>

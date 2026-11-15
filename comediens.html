@@ -15,7 +15,7 @@
 :root {
   --fond:#f6f8fc; --carte:#ffffff; --texte:#14161b; --t2:#5d6470; --bord:rgba(20,30,60,.08);
   --bleu:#1f6fc5; --bleu-haut:#2373c8; --lien:#1a62b0; --sur-bouton:#ffffff;
-  --halo-a:#dcecfb; --halo-b:#ece4fb;
+  --halo-a:#dcecfb; --halo-b:#e2eefb;
   --verre:rgba(255,255,255,.62); --verre-bord:rgba(255,255,255,.9);
   --titre-degrade:linear-gradient(120deg, #1e293b 0%, #1f6fc5 100%);
   --ombre:0 2px 12px rgba(30,50,90,.08);
@@ -23,14 +23,14 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --fond:#0f1319; --carte:#171c24; --texte:#eef1f6; --t2:#9aa3b2; --bord:rgba(255,255,255,.08);
-  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#2a2340;
+  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#1b2d44;
   --verre:rgba(255,255,255,.07); --verre-bord:rgba(255,255,255,.14);
   --titre-degrade:linear-gradient(120deg, #e2e8f0 0%, #6fb3ea 100%);
   --ombre:0 2px 14px rgba(0,0,0,.35); --chassis:#2a2e36;
 } }
 :root[data-theme="dark"] {
   --fond:#0f1319; --carte:#171c24; --texte:#eef1f6; --t2:#9aa3b2; --bord:rgba(255,255,255,.08);
-  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#2a2340;
+  --lien:#6fb3ea; --halo-a:#1b2a3d; --halo-b:#1b2d44;
   --verre:rgba(255,255,255,.07); --verre-bord:rgba(255,255,255,.14);
   --titre-degrade:linear-gradient(120deg, #e2e8f0 0%, #6fb3ea 100%);
   --ombre:0 2px 14px rgba(0,0,0,.35); --chassis:#2a2e36;
@@ -381,7 +381,7 @@ details.plus > details { margin-top:10px; }
         <div class="cta-haut"><span class="store bientot" id="telecharger"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><small>Bientôt sur</small>l’App Store</span></span><a class="lien-prix" href="#prix">Voir les prix</a></div>
         <p class="sous-bouton">Sur iPhone. Dans CastRise, voir les castings et y postuler est gratuit, sans limite.</p>
       </div>
-      <div class="tel"><img src="png/app-castings-2026-11-03-net.png" alt="L’onglet Castings de l’app, avec trois annonces à examiner, pour des comédiens et pour un mannequin"></div>
+      <div class="tel"><img src="png/refonte-castings-2026-11-15.png" alt="L’onglet Castings de l’app, avec 7 castings adaptés au profil et une annonce de défilé"></div>
     </div>
   </div>
 </header>
@@ -410,15 +410,15 @@ details.plus > details { margin-top:10px; }
     <div class="texte">
       <span class="etiquette">Gratuit</span>
       <h2 class="titre-bloc">Les castings de ta région, sans fouiller dix sites</h2>
-      <p>Pubs, courts-métrages, figuration&nbsp;: CastRise rassemble des annonces publiées sur plus de 30 sites. Avec le filtre «&nbsp;Où&nbsp;», tu gardes celles de ta région, ou d’une autre région si tu te déplaces.</p>
+      <p>Pubs, courts-métrages, figuration&nbsp;: les annonces de plus de 30 sites arrivent au même endroit, puis tu gardes celles qui te concernent.</p>
       <p>Dans CastRise, tu les consultes et tu y postules sans payer, autant que tu veux. Certains sites d’origine ont leur propre abonnement.</p>
-      <h3 class="sous-titre">Le temps de préparer, pas de courir</h3>
-      <p>Quand un nouveau casting arrive pour toi, ton téléphone te prévient. Tu le découvres assez tôt pour soigner ta candidature.</p>
+      <h3 class="sous-titre">Sois parmi les premiers à postuler</h3>
+      <p>Un nouveau casting pour toi, et ton téléphone te prévient aussitôt. S’il n’y a rien de neuf, rien ne part.</p>
       <p class="gratuit"><b>Gratuit</b>, sans limite.</p>
       <span class="store bientot"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span><small>Bientôt sur</small>l’App Store</span></span>
     </div>
     <div class="visuels">
-      <div class="tel"><img src="png/app-fiche-annonce-haut-2026-11-03.png" alt="Une annonce de casting « Comédien·ne » ouverte dans l’app&nbsp;: lieu Paris et Île-de-France, 25 à 50 ans, date limite et cachet non précisés"></div>
+      <div class="tel"><img src="png/refonte-fiche-annonce-haut-2026-11-15.png" alt="Une annonce de casting ouverte dans l’app&nbsp;: mannequin pour une campagne e-commerce, date limite, cachet, âge et lieu"></div>
       
       <div class="notifs" role="img" aria-label="Exemples de notifications de nouveaux castings">
         <div class="notif verre"><div class="ico"><picture><source srcset="png/icone-soir-64.png" media="(prefers-color-scheme: dark)"><img src="png/icone-64.png" alt="" width="38" height="38"></picture></div><div><div class="ligne1"><b>1 nouveau casting pour toi</b><span>maintenant</span></div><div class="corps"><b>Court-métrage, rôle principal</b>25-35 ans · Paris</div></div></div>
@@ -434,39 +434,39 @@ details.plus > details { margin-top:10px; }
     <p class="glisser">Fais glisser pour voir les 6 outils.</p>
     <div class="outils" tabindex="0" aria-label="Les outils de l’abonnement">
       <article class="outil verre">
-        <div class="outil-capture"><img src="png/app-book-videos-2026-11-03.png" alt="Le haut de l’écran Book, avec les bandes démo et les self-tapes"></div>
+        <div class="outil-capture"><img src="png/refonte-book-haut-2026-11-15.png" alt="Le haut de l’écran Book, avec les photos et le bouton Partager mon book"></div>
         <span class="etiquette">Ton dossier</span>
         <h3>Ton CV et ton self‑tape prêts avant qu’on te les demande</h3>
         <p>Mon parcours te guide pour ton CV, ton self‑tape et tes premières agences, avec pour chaque étape un conseil qui dit comment t’y prendre. L’annuaire liste plus de 60 agences qui prennent des comédiens, dans 7 pays. Tes bandes démo et tes self‑tapes se rangent dans le Book, au même endroit.</p>
       </article>
       <article class="outil verre">
-        <div class="outil-capture"><img src="png/app-book-lien-2026-11-03-net.png" alt="Le bas de l’écran Book, avec Mon book en ligne"></div>
+        <div class="outil-capture"><img src="png/refonte-book-lien-2026-11-15.png" alt="L’écran Book, avec le bouton Partager mon book"></div>
         <span class="etiquette">Photos</span>
         <h3>Tes photos en un lien, à la sortie de l’audition</h3>
         <p>On te demande tes photos en partant&nbsp;? Tu envoies un lien depuis ton téléphone. À côté, Mon profil réunit ton CV et tes vidéos de jeu, et s’exporte en fiche PDF.</p>
       </article>
       <article class="outil verre">
-        <div class="outil-capture"><img src="png/app-evenements-2026-11-03-net.png" alt="L’onglet Événements, avec le calendrier des dates à Paris"></div>
+        <div class="outil-capture"><img src="png/refonte-evenements-2026-11-15.png" alt="L’onglet Événements, avec les journées de la photo et le bouton Me le rappeler la veille"></div>
         <span class="etiquette">Événements</span>
-        <h3>Les festivals de cinéma de Paris, assez tôt pour t’organiser</h3>
-        <p>Dans un festival, tu croises des gens qui font des films. D’octobre à mars, Événements réunit plus de 10 dates de cinéma à Paris, avec le site officiel de chacune. Tu vois tout de suite celles qui sont sur invitation.</p>
+        <h3>Salons, festivals, concours photo</h3>
+        <p>Les rendez-vous du métier réunis au même endroit, avec le site officiel de chacun, puis un rappel la veille.</p>
       </article>
       <article class="outil verre">
-        <div class="outil-capture"><img src="png/07c-reseau-carnet-contacts-sans-barre-net.png" alt="Le carnet de contacts, avec un rappel pour reprendre contact"></div>
+        <div class="outil-capture"><img src="png/refonte-contacts-2026-11-15.png" alt="Le carnet de contacts, avec les personnes à relancer"></div>
         <span class="etiquette">Réseau</span>
         <h3>Une rencontre de festival, retrouvée six mois après</h3>
         <p>Tu notes chaque rencontre dans le carnet, qu’elle vienne d’un casting de pub ou d’un festival de courts. Un rappel te dit quand reprendre contact.</p>
       </article>
       <article class="outil verre">
-        <div class="outil-capture"><img src="png/app-candidatures-2026-11-03-net.png" alt="La liste des candidatures envoyées, avec celle à relancer"></div>
+        <div class="outil-capture"><img src="png/refonte-candidatures-2026-11-15.png" alt="La liste des candidatures, avec celles à relancer"></div>
         <span class="etiquette">Jobs</span>
         <h3>Après vingt candidatures, savoir qui relancer</h3>
         <p>Au bout d’un moment, difficile de savoir qui a répondu. Jobs garde la liste de tes candidatures et de tes missions, et te montre qui relancer. Dans Mes parutions, tu gardes les liens de ce qui a été publié avec toi.</p>
       </article>
       <article class="outil verre">
         <span class="etiquette">Assistant IA</span>
-        <h3>La veille d’une audition, pose tes questions à l’assistant IA</h3>
-        <p>Comment aborder la scène, quoi dire en entrant&nbsp;? Pose la question à l’assistant, même à minuit. Ses réponses tiennent compte de ton profil. Il ne parle à personne en ton nom et ne remplace pas un agent artistique.</p>
+        <h3>Une question sur ta carrière&nbsp;?</h3>
+        <p>Trouver une agence, compléter ton book, réussir tes premiers castings&nbsp;: l’assistant t’aide à savoir quoi faire ensuite, même tard le soir. Ses réponses tiennent compte de ton profil. Il ne parle à personne en ton nom et ne remplace pas un agent artistique.</p>
       </article>
     </div>
   </section>
